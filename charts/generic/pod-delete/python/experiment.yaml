@@ -46,7 +46,7 @@ spec:
           - "update"
           - "delete"
           - "deletecollection"
-    image: "litmuschaos/py-runner:latest"
+    image: "docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/py-runner:latest"
     imagePullPolicy: Always
     args:
       - -c

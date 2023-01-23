@@ -43,7 +43,7 @@ spec:
         verbs:
           - "get"
           - "list"
-    image: "litmuschaos/ansible-runner:latest"
+    image: "docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/ansible-runner:latest"
     imagePullPolicy: Always
     args:
     - -c
@@ -73,7 +73,7 @@ spec:
       value: '5'
 
     - name: LIB_IMAGE
-      value: 'litmuschaos/pod-delete-helper:latest'
+      value: 'docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/pod-delete-helper:latest'
 
     - name: LIB
       value: 'litmus'    
