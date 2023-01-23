@@ -78,7 +78,7 @@ spec:
                           verbs:
                             - "get"
                             - "list"
-                      image: "docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/go-runner:latest"
+                      image: "docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/go-runner:2.13.0"
                       imagePullPolicy: Always
                       args:
                       - -c
@@ -107,7 +107,7 @@ spec:
                       labels:
                         name: pod-delete
         container:
-          image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:latest
+          image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:2.13.0
           command: [sh, -c]
           args:
             [
@@ -148,12 +148,12 @@ spec:
                               - name: FORCE
                                 value: "false"
         container:
-          image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/litmus-checker:latest
+          image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/litmus-checker:2.13.0
           args: ["-file=/tmp/chaosengine.yaml","-saveName=/tmp/engine-name"]
 
       - name: revert-chaos
         container:
-          image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:latest
+          image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:2.13.0
           command: [sh, -c]
           args:
             [
