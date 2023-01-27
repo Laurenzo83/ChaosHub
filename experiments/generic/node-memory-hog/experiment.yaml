@@ -46,7 +46,7 @@ spec:
       - apiGroups: [""]
         resources: ["nodes"]
         verbs: ["get","list"]
-    image: "litmuschaos/go-runner:latest"
+    image: "docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/go-runner:latest"
     imagePullPolicy: Always
     args:
     - -c
@@ -89,7 +89,7 @@ spec:
 
     # provide lib image
     - name: LIB_IMAGE
-      value: 'litmuschaos/go-runner:latest' 
+      value: 'docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/go-runner:latest' 
 
     ## percentage of total nodes to target
     - name: NODES_AFFECTED_PERC
