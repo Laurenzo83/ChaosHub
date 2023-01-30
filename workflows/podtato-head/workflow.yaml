@@ -31,15 +31,15 @@ spec:
 
     - name: install-application
       container:
-        image: litmuschaos/litmus-app-deployer:latest
+        image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/litmus-app-deployer:latest
         args: ["-namespace={{workflow.parameters.adminModeNamespace}}","-typeName=resilient","-operation=apply","-timeout=400", "-app=podtato-head","-scope=namespace"]
 
     - name: install-chaos-experiments
       container:
-        image: litmuschaos/k8s:latest
+        image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:latest
         command: [sh, -c]
         args:
-          - "kubectl apply -f https://hub.litmuschaos.io/api/chaos/master?file=charts/generic/experiments.yaml -n
+          - "kubectl apply -f https://github.com/Laurenzo83/Litmus/blob/4ba4e60a677e9ad04e9c9fd5c44c49c07827cd96/experiments.yaml -n
             {{workflow.parameters.adminModeNamespace}} ; sleep 30"
 
     - name: pod-delete
@@ -96,17 +96,17 @@ spec:
                             - name: FORCE
                               value: 'false'
       container:
-        image: litmuschaos/litmus-checker:latest
+        image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/litmus-checker:latest
         args: ["-file=/tmp/chaosengine.yaml","-saveName=/tmp/engine-name"]        
 
     - name: delete-application
       container:
-        image: litmuschaos/litmus-app-deployer:latest
+        image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/litmus-app-deployer:latest
         args: ["-namespace={{workflow.parameters.adminModeNamespace}}","-typeName=resilient","-operation=delete","-app=podtato-head"]
     
     - name: revert-chaos
       container:
-        image: litmuschaos/k8s:latest
+        image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:latest
         command: [sh, -c]
         args: 
           [ 

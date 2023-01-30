@@ -39,7 +39,7 @@ spec:
         image: docker-hub.artifacts.cfzcea.dev.desjardins.com/litmuschaos/k8s:2.13.0
         command: [sh, -c]
         args:
-          - "kubectl apply -f https://hub.litmuschaos.io/api/chaos/master?file=charts/generic/experiments.yaml -n
+          - "kubectl apply -f https://github.com/Laurenzo83/Litmus/blob/4ba4e60a677e9ad04e9c9fd5c44c49c07827cd96/experiments.yaml -n
             {{workflow.parameters.adminModeNamespace}} ; sleep 30"
 
     - name: pod-delete
